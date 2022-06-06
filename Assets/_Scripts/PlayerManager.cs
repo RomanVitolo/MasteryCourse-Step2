@@ -19,11 +19,10 @@ public class PlayerManager : MonoBehaviour
             .OrderBy(t => t.PlayerNumber)
             .FirstOrDefault(t => t.HasController == false);
 
-        firstActivePlayer!.InitializeController(controller);
-        
-        /*if (firstActivePlayer != null)
+        //firstActivePlayer!.InitializeController(controller);
+        if (firstActivePlayer != null)
         {
-            firstActivePlayer.InitializeController(controller);    //Another way
-        }*/
+            firstActivePlayer.InitializeController(controller);  
+        }
     }
 }
