@@ -50,22 +50,44 @@ public class CharacterSelectionMarkerUI : MonoBehaviour
 
             if (_player.Controller.AttackPressed)
             {
-                LockCharacter();
+                StartCoroutine(LockCharacter());
+            }
+        }
+        else
+        {
+            if (_player.Controller.AttackPressed)
+            {
+                StartCoroutine(WaitToStart());
+                //_menu.TryStartGame();
             }
         }
         
     }
 
-    private void LockCharacter()
+    private IEnumerator WaitToStart()
+    {
+        yield return new WaitForSeconds(2);
+        _menu.TryStartGame();
+    }
+
+    /*private void LockCharacter()
     {
         IsLockedIn = true;
         _lockImage.gameObject.SetActive(true);
         _markerImage.gameObject.SetActive(false);
+    }*/
+    private IEnumerator LockCharacter()
+    {
+        _lockImage.gameObject.SetActive(true);
+        _markerImage.gameObject.SetActive(false);
+        yield return new WaitForSeconds(0.25f);
+        IsLockedIn = true;
     }
 
     private void MoveToCharacterPanel(CharacterSelectionPanelUI panel)
     {
         transform.position = panel.transform.position;
+        _player.CharacterPrefab = panel.CharacterPrefab;
     }
 
     private IEnumerator Initialize()

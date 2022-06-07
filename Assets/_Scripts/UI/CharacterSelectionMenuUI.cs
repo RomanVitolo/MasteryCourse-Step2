@@ -17,6 +17,7 @@ public class CharacterSelectionMenuUI : MonoBehaviour
     private CharacterSelectionMarkerUI[] _markerts;
     private int playerCount = 0;
     private int lockedCount = 0;
+    private bool startenabled;
 
     private void Awake()
     {
@@ -42,12 +43,20 @@ public class CharacterSelectionMenuUI : MonoBehaviour
         //bool startEnabled = playerCount > 0 && playerCount == lockedCount;
         //startGameText.gameObject.SetActive(startEnabled);
     }
-
-    private void CanStartGame()
+    public void CanStartGame()
     {
         if (playerCount > 0 && lockedCount > 0)
         {
+            startenabled = true;
             startGameText.gameObject.SetActive(true);
+        }
+    }
+    public void TryStartGame()
+    {
+        if (startenabled == true)
+        {
+            GameManager.Instance.Begin();
+            gameObject.SetActive(false);
         }
     }
 }
