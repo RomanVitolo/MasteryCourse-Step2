@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class CharacterSelectionPanelUI : MonoBehaviour
 {
-    [SerializeField] private Character _characterPrefab;
-    public Character CharacterPrefab { get { return _characterPrefab; } }
+    //1 code Line
+    [field: SerializeField] public Character CharacterPrefab { get; set; }  
+    
+    //Old Version
+    //[SerializeField] private Character _characterPrefab;
+    //public Character CharacterPrefab { get { return _characterPrefab; } }
 }
