@@ -12,14 +12,14 @@ public class Character : MonoBehaviour
     private Controller _controller;
     private Animator _animator;
     private Collider[] _attackResults;
-    private Box _box;
+    //private Box _box;
     private AnimationImpactWatcher _animationImpactWatcher;
 
     private void Awake()
     {
         _animator = GetComponentInChildren<Animator>();
         _attackResults = new Collider[10];
-        _box = FindObjectOfType<Box>();
+        //_box = FindObjectOfType<Box>();
 
         _animationImpactWatcher = GetComponentInChildren<AnimationImpactWatcher>();
         _animationImpactWatcher.OnImpact += AnimationImpactWatcher_OnImpact;
@@ -66,9 +66,4 @@ public class Character : MonoBehaviour
             }
         }
     }
-
-    
-
-    
-
 }

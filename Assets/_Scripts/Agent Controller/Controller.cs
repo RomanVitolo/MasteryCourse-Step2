@@ -6,13 +6,12 @@ using UnityEngine;
 public class Controller : MonoBehaviour
 {
     [SerializeField] private bool attack;
-    
     [field: SerializeField] public int Index { get; private set; }
+    
     public bool IsAssigned { get; set; }
     public bool AttackPressed { get; set; }
     public string horizontalAxis  { get; set; }
     public string verticalAxis  { get; set; }
-    
     public float horizontal { get; set; }
     public float vertical { get; set; }
     
