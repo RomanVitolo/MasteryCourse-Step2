@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2057822014609931574}
-  - component: {fileID: 8133720863855437169}
+  - component: {fileID: 287922561538881305}
+  - component: {fileID: 1519865734047955006}
   m_Layer: 0
   m_Name: Viking
   m_TagString: Untagged
@@ -33,7 +34,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!114 &8133720863855437169
+--- !u!114 &287922561538881305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6530406676615780999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75adadf8a775640438e364e30fabf01a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRefreshSpeed: 1.5
+  damage: 1
+  attackOffset: 1
+  attackRadius: 1
+--- !u!114 &1519865734047955006
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,9 +62,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b2e746eb3582e2488f795a35b1dcdaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _characterSetupSo: {fileID: 11400000, guid: 962549c88dd22334899f6c3ba6e2eee9, type: 2}
   moveSpeed: 5
-  attackOffset: 1
-  attackRadius: 1
 --- !u!1001 &4456885421357678452
 PrefabInstance:
   m_ObjectHideFlags: 0

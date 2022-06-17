@@ -53,7 +53,7 @@ public class CharacterSelectionMenuUI : MonoBehaviour
     }
     public void TryStartGame()
     {
-        if (startenabled == true)
+        if (startenabled)
         {
             GameManager.Instance.Begin();
             gameObject.SetActive(false);

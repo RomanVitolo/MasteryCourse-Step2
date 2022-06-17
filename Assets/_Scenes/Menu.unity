@@ -1717,7 +1717,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d03b5560e427f314ca44394c37c73c4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <CharacterPrefab>k__BackingField: {fileID: 8133720863855437169, guid: 6ae57681d699bd444b515585236e49f1, type: 3}
+  <CharacterPrefab>k__BackingField: {fileID: 1519865734047955006, guid: 6ae57681d699bd444b515585236e49f1, type: 3}
 --- !u!1 &1763171434
 GameObject:
   m_ObjectHideFlags: 0
@@ -2190,6 +2190,10 @@ PrefabInstance:
     - target: {fileID: 6281080006388556794, guid: 5a3e09edc1d81e649a4d65c8b47c19c4, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6281080006388556794, guid: 5a3e09edc1d81e649a4d65c8b47c19c4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6281080006388556795, guid: 5a3e09edc1d81e649a4d65c8b47c19c4, type: 3}
       propertyPath: m_RootOrder

@@ -1,30 +1,39 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
-public class Character : MonoBehaviour
+[RequireComponent(typeof(Attacker))]
+public class Character : MonoBehaviour, ITakeHit
 {
-    [SerializeField] private float moveSpeed = 5f;
-    [SerializeField] private float attackOffset = 1f;
-    [SerializeField] private float attackRadius = 1f;
+    public static List<Character> All = new List<Character>();
     
+    [SerializeField] private CharacterSetupSO _characterSetupSo;
+    [SerializeField] private float moveSpeed = 5f;
+
     private Controller _controller;
     private Animator _animator;
-    private Collider[] _attackResults;
-    //private Box _box;
-    private AnimationImpactWatcher _animationImpactWatcher;
+    private Attacker _attacker;
 
     private void Awake()
     {
         _animator = GetComponentInChildren<Animator>();
-        _attackResults = new Collider[10];
-        //_box = FindObjectOfType<Box>();
+        _attacker = GetComponent<Attacker>();
 
-        _animationImpactWatcher = GetComponentInChildren<AnimationImpactWatcher>();
-        _animationImpactWatcher.OnImpact += AnimationImpactWatcher_OnImpact;
     }
-    
+
+    private void OnEnable()
+    {
+        _characterSetupSo.CurrentHealth = _characterSetupSo.MaxHealth;
+        if (All.Contains(this) == false) All.Add(this);
+    }
+
+    private void OnDisable()
+    {
+        if(All.Contains(this)) All.Remove(this);
+    }
+
     private void Update()
     {
         Vector3 direction = _controller.GetDirection();
@@ -41,7 +50,10 @@ public class Character : MonoBehaviour
         
         if (_controller.AttackPressed)
         {
-            _animator.SetTrigger("Attack");
+            if (_attacker.CanAttack)
+            {
+                _animator.SetTrigger("Attack");
+            }
         }
     }
     
@@ -49,21 +61,16 @@ public class Character : MonoBehaviour
     {
         _controller = controller;
     }
-
-    //Call by animation event via AnimationImpactWatcher
-    private void AnimationImpactWatcher_OnImpact()
+    
+    public void TakeHit(IAttack hitBy)
     {
-        Vector3 position = transform.position + transform.forward * attackOffset;
-        int hitCount = Physics.OverlapSphereNonAlloc(position, attackRadius, _attackResults);
-
-        for (int i = 0; i < hitCount; i++)
+        if (_characterSetupSo.CurrentHealth >= 0)
         {
-            var takeHit = _attackResults[i].GetComponent<ITakeHit>();
-            //_attackResults[i].TryGetComponent(out _box);
-            if (takeHit != null)
-            {
-                takeHit.TakeHit(this);
-            }
+            _characterSetupSo.CurrentHealth -= hitBy.Damage;
+        }
+        else
+        {
+            Debug.Log("DIE");
         }
     }
 }

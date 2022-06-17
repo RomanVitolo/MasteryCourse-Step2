@@ -45,7 +45,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b2e746eb3582e2488f795a35b1dcdaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Damage>k__BackingField: 20
+  _characterSetupSo: {fileID: 11400000, guid: 962549c88dd22334899f6c3ba6e2eee9, type: 2}
   moveSpeed: 5
+  attackOffset: 1
+  attackRadius: 1
 --- !u!1001 &6955435550688339378
 PrefabInstance:
   m_ObjectHideFlags: 0

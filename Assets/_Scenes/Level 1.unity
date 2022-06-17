@@ -2156,7 +2156,7 @@ MonoBehaviour:
   - {fileID: 569179724}
   - {fileID: 1734275438}
   respawnRate: 3
-  initialSpawnDelay: 0
+  initialSpawnDelay: 2
   totalEnemiesToSpawn: 5
   numberToSpawnEachTime: 2
 --- !u!4 &1511572069
@@ -2333,7 +2333,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d8a4de89336021d488c0a4e9fdad9a2c, type: 2}
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2551,5 +2551,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 8243465122179324276, guid: 9c3a7e10197df6347b964cbd9de72c33, type: 3}
+      propertyPath: _target
+      value: 
+      objectReference: {fileID: 8133720863855437169, guid: 6ae57681d699bd444b515585236e49f1, type: 3}
+    - target: {fileID: 8243465122179324276, guid: 9c3a7e10197df6347b964cbd9de72c33, type: 3}
+      propertyPath: _healthSo
+      value: 
+      objectReference: {fileID: 11400000, guid: 62c780c27585caf46b06347178a2b557, type: 2}
+    - target: {fileID: 8243465122179324276, guid: 9c3a7e10197df6347b964cbd9de72c33, type: 3}
+      propertyPath: _enemySetupSo
+      value: 
+      objectReference: {fileID: 11400000, guid: 62c780c27585caf46b06347178a2b557, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c3a7e10197df6347b964cbd9de72c33, type: 3}

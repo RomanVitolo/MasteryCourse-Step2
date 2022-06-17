@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface ITakeHit
+public interface IAttack
 {
-    void TakeHit(IAttack hitBy){}
+    Transform transform { get; }
+    int Damage { get; }
 }
